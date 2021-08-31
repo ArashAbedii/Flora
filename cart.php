@@ -58,7 +58,7 @@
                 
                 <div class="ms-auto align-self-end rounded p-2 text-nowrap" >
                   <script>
-                    $.post("http://localhost/flora/inc/ajaxRequests/cart.php",{productid:<?php echo $product->getId(); ?>,number:<?php echo $_SESSION['cart']['number'][$product->getId()]; ?>},function(response){
+                    $.post("<?php echo DOMAIN; ?>inc/ajaxRequests/cart.php",{productid:<?php echo $product->getId(); ?>,number:<?php echo $_SESSION['cart']['number'][$product->getId()]; ?>},function(response){
                       var response=JSON.parse(response);
                       $("#<?php echo $product->getId(); ?>_orgprice").text(response['orgprice']+" تومان");
                       $("#fullsum").text(response['fullsum']+" تومان");

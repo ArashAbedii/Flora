@@ -68,12 +68,12 @@ function uploadImage(array $image,&$message="",$path=""){
     }
     //upload path
     if($path==""){
-        $newFileName=public_html().PROJECT_NAME."/".UPLOAD_PATH.rand(100,9999).$imageName;
+        $newFileName=UPLOAD_PATH.rand(100,9999).$imageName;
     }else{
-        $newFileName=public_html().PROJECT_NAME."/".$path.rand(100,9999).$imageName;
+        $newFileName=$path.rand(100,9999).$imageName;
     }
    
-    $result=move_uploaded_file($imageTmpName,$newFileName);
+    $result=move_uploaded_file($imageTmpName,public_html().$newFileName);
     if($result){
         return $newFileName;
     }else{
@@ -91,21 +91,21 @@ function uploadFile(array $file,&$message="",$path="",$newfilename=""){
     //upload path
     if($path==""){
         if($newfilename!=""){
-            $newFileName=public_html().PROJECT_NAME."/".$path.$newfilename;
+            $newFileName=$path.$newfilename;
         }else{
-            $newFileName=public_html().PROJECT_NAME."/".UPLOAD_PATH.rand(100,9999).$fileName;
+            $newFileName=UPLOAD_PATH.rand(100,9999).$fileName;
         }
         
     }else{
         if($newfilename!=""){
-            $newFileName=public_html().PROJECT_NAME."/".$path.$newfilename;
+            $newFileName=$path.$newfilename;
         }else{
-            $newFileName=public_html().PROJECT_NAME."/".$path.rand(100,9999).$imageName;
+            $newFileName=$path.rand(100,9999);
         }
        
     }
    
-    $result=move_uploaded_file($fileTmpName,$newFileName);
+    $result=move_uploaded_file($fileTmpName,public_html().$newFileName);
     if($result){
         return $newFileName;
     }else{
@@ -195,7 +195,7 @@ function isAdmin(){
         //redirect to admin login page
         $account=new Account();
         $account->logout();
-        redirectTo(public_html().PROJECT_NAME."/admin/adminlogin.php");
+        redirectTo(public_html()."/admin/adminlogin.php");
     }
     if(isset($_SESSION['permission']) && $_SESSION['permission']=='admin'){
         return true;

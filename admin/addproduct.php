@@ -3,6 +3,7 @@
   $pageUi='addProduct';
   include_once '../config.php';
 ?>
+
 <!-- admin header -->
 <?php include 'adminheader.php'; ?>
 <!-- admin header -->

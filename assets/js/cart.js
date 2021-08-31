@@ -1,7 +1,8 @@
+var DOMAIN="http://localhost:8000/";
 function addToCart(productId){
     var number=$("#"+productId+"_number").val();
     
-    $.post("http://localhost/flora/inc/ajaxRequests/cart.php",{productid:productId,number:number},function(response){
+    $.post(DOMAIN+"inc/ajaxRequests/cart.php",{productid:productId,number:number},function(response){
         var response=JSON.parse(response);
         
         $("#badgetxt").text(response['countProducts']);
@@ -32,7 +33,7 @@ function updateNumberOfCart(productId,type,maxInstock){
     //update number input value
     $("#"+productId+"_number").val(number);
 
-    $.post("http://localhost/flora/inc/ajaxRequests/cart.php",{productid:productId,number:number},function(response){
+    $.post(DOMAIN+"inc/ajaxRequests/cart.php",{productid:productId,number:number},function(response){
         var response=JSON.parse(response);
         
         //update price text
@@ -68,7 +69,7 @@ function controllStockRange(productId,maxInstock,type){
     
 }
 function deleteFromCart(productId){
-    $.post("http://localhost/flora/inc/ajaxRequests/cart.php",{delcart:productId},function(response){
+    $.post(DOMAIN+"inc/ajaxRequests/cart.php",{delcart:productId},function(response){
         var response=JSON.parse(response);
         //console.log(response);
         $("#delcart_"+productId).remove();

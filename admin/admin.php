@@ -35,8 +35,8 @@ if(isAdmin() || isMaster()){
           <div class="row row-cols-1 row-cols-md-3 text-center align-items-center">
             <!----------------------------- cards --------------------------->
               
-              <a href="http://localhost/flora/admin/addproduct.php"><div class="col my-2"><img src="../assets/images/add-product.jpg" alt="" class="w-100 img-fluid rounded"></div></a>
-              <a href="http://localhost/flora/admin/orders.php"><div class="col my-2"><img src="../assets/images/orders.jpg" alt="" class="w-100 img-fluid rounded"></div></a>
+              <a href="<?php echo DOMAIN; ?>admin/addproduct.php"><div class="col my-2"><img src="../assets/images/add-product.jpg" alt="" class="w-100 img-fluid rounded"></div></a>
+              <a href="<?php echo DOMAIN; ?>admin/orders.php"><div class="col my-2"><img src="../assets/images/orders.jpg" alt="" class="w-100 img-fluid rounded"></div></a>
 
           </div>
         </div>

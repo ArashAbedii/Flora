@@ -45,7 +45,7 @@ include 'adminheader.php';
               <div class="d-flex flex-column">
 
                 <div class="flex-shrink-0 mb-3">
-                <img src="<?php echo $product->getImage() ?>" alt="" class="img-thumbnail" height="250px" width="250px">
+                <img src="<?php echo DOMAIN.$product->getImage() ?>" alt="" class="img-thumbnail" height="250px" width="250px">
                 </div>
     
                 <!--<div>

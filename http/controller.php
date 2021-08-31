@@ -6,7 +6,6 @@ if(isset($_GET['logout']) && $_GET['logout']==true){
     $account=new Account();
     $account->logout();
     session_destroy();
-    
 }
 
 if(isset($pageUi)){
@@ -52,7 +51,7 @@ if(isset($pageUi)){
                 if($catType!=""){
                     if($catType=='parent'){
                         //add a category
-                        Category::create(['name'=>$catName,'creator_id'=>1],$message);
+                        Category::create(['name'=>$catName,'creator_id'=>$_SESSION['userId']],$message);
                         
                         //set a success message
                         $_SESSION['successMessage']=SUCCESS_CREATE_CATEGORY;
@@ -61,7 +60,7 @@ if(isset($pageUi)){
                         redirectTo($_SERVER['PHP_SELF']);
                     }else{
                         //add sub category
-                        SubCategory::create(['name'=>$catName,'creator_id'=>1,'category_id'=>$catType]);
+                        SubCategory::create(['name'=>$catName,'creator_id'=>$_SESSION['userId'],'category_id'=>$catType]);
 
                         //set a success message
                         $_SESSION['successMessage']=SUCCESS_CREATE_SUBCATEGORY;

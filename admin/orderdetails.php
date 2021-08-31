@@ -96,7 +96,7 @@ if(isAdmin() || isMaster()){
                   <div id="delcart_13" class="col-12 col-md-10 p-2 my-3 rounded shadow" style="background-color:antiquewhite;">
                     <div class="d-flex flex-row align-items-center flex-start">
                       <div class="col-2 me-3">
-                        <a href="../product.php?pid=<?php echo $product->getId(); ?>&slug=<?php echo $product->getTitle(); ?>"><img src="<?php echo $product->getImage(); ?>" style="width: 150px;" alt="" class="img-fluid ordrd-img rounded"></a>
+                        <a href="../product.php?pid=<?php echo $product->getId(); ?>&slug=<?php echo $product->getTitle(); ?>"><img src="<?php echo DOMAIN.$product->getImage(); ?>" style="width: 150px;" alt="" class="img-fluid ordrd-img rounded"></a>
                       </div>    
                       <div class="d-flex flex-column mt-2 align-self-start justify-content-start" style="height: 9rem">
                         <a href="../product.php?pid=<?php echo $product->getId(); ?>&slug=<?php echo $product->getTitle(); ?>" class="text-decoration-none" style="color: currentColor;"><p class="fw-bold mb-4 border-bottom border-2 border-dark"><?php echo $product->getTitle(); ?></p></a>

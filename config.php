@@ -4,17 +4,17 @@ session_start();
 //set coockie to 7 days
 setcookie(session_name(),session_id(),time()+(7*24*3600));
 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 //domain
-define('DOMAIN','http://localhost/flora/');
+define('DOMAIN','http://localhost:8000/');
 define('HOST_ROOT','');
 define('PROJECT_NAME', 'flora');
 
 
-//my public_html function here
+//my public_html function 
 function public_html(){
     
     //count directory of current path
@@ -38,9 +38,9 @@ function public_html(){
 }
 
 //DATABASE SETUP
-define('DB_USERNAME', 'root');
+define('DB_USERNAME', 'arash');
 define('DB_SERVER', 'localhost');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'arash');
 define('DB_NAME', PROJECT_NAME);
 
 //TABELS
@@ -73,10 +73,10 @@ define('PHONE_NUMBER_LEN', 11);
 
 
 //require libs
-require_once public_html().PROJECT_NAME.'/inc/libs/jdf.php';
+require_once 'inc/libs/jdf.php';
 
 //include functions
-include_once(public_html().PROJECT_NAME.'/inc/functions.php');
+include_once('inc/functions.php');
 
 //SMS PANEL SETUP
 define('USERNAME_TREZ','**username**');
@@ -85,23 +85,23 @@ define('FROM_PHONE_TREZ', '**public-number**');
 
 
 //require classes
-require_once public_html().PROJECT_NAME.'/inc/classes/MessagesClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/DbClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/UserClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/CategoryClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/SubCategoryClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/AccountClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/ProductClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/server/lib/ServerClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/AdminClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/AddressClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/OrderClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/ShippingClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/OrderDetailClass.php';
-require_once public_html().PROJECT_NAME.'/inc/classes/SliderClass.php';
+require_once 'inc/classes/MessagesClass.php';
+require_once 'inc/classes/DbClass.php';
+require_once 'inc/classes/UserClass.php';
+require_once 'inc/classes/CategoryClass.php';
+require_once 'inc/classes/SubCategoryClass.php';
+require_once 'inc/classes/AccountClass.php';
+require_once 'inc/classes/ProductClass.php';
+require_once 'inc/classes/server/lib/ServerClass.php';
+require_once 'inc/classes/AdminClass.php';
+require_once 'inc/classes/AddressClass.php';
+require_once 'inc/classes/OrderClass.php';
+require_once 'inc/classes/ShippingClass.php';
+require_once 'inc/classes/OrderDetailClass.php';
+require_once 'inc/classes/SliderClass.php';
 
 
-//POSTAL PRICE
+//POSTAL PRICE (statics)
 define('MAX_PRICE', getFreePostalPrice());
 $fast_post=new Shipping(1);
 $normal_post=new Shipping(2);
@@ -193,5 +193,5 @@ define('SUCCESS_DELETE_ADDRESS', 'آدرس شما با موفقیت حذف شد'
 
 
 
-//include controller 
-include_once public_html().PROJECT_NAME.'/http/controller.php';
+//include master controller 
+include_once 'http/controller.php';
